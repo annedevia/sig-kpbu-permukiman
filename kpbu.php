@@ -129,7 +129,7 @@
               </thead>
               <tbody>
               <?php
-                $data = file_get_contents('http://localhost/giskpbu/ambildata.php');
+                $data = file_get_contents('http://localhost/sig-kpbu-permukiman/ambildata.php');
                 $no=1;
                 if(json_decode($data,true)){
                   $obj = json_decode($data);
