@@ -11,6 +11,7 @@ $kota="";
 $prov="";
 $lat="";
 $long="";
+$contact_person="";
 foreach($obj->results as $item){
   $titles.=$item->nama_proyek;
   $ids.=$item->id_proyek;
@@ -21,6 +22,7 @@ foreach($obj->results as $item){
   $prov.=$item->provinsi;
   $lat.=$item->latitude;
   $long.=$item->longitude;
+  $contact_person.=$item->contact_person;
 }
 ?>
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA6L-aG7BIZ6ooNpGKdXZ4pKCUp_YdslSk&libraries=places"></script>
@@ -185,9 +187,9 @@ google.maps.event.addDomListener(window, 'load', initialize);
          <div class="row">
 		 <div class="col-md-5">
           <div class="panel panel-info panel-dashboard">
-            <div class="panel-heading centered">
-              <h2 class="panel-title centered" color="#ffb600"><strong> - Lokasi - </strong></h4>
-            </div>
+            <!-- <div class="panel-heading centered">
+              <h2 class="panel-title" color="#ffb600"><strong> - Lokasi - </strong></h4>
+            </div> -->
             <div class="panel-body">
               <div id="map-canvas" style="width:100%;height:380px;"></div>
             </div>
@@ -195,17 +197,14 @@ google.maps.event.addDomListener(window, 'load', initialize);
         </div>
 		<div class="col-md-7">
           <div class="panel panel-info panel-dashboard">
-            <div class="panel-heading centered">
+            <!-- <div class="panel-heading centered">
               <h2 class="panel-title"><strong> - Detail - </strong></h4>
-            </div>
+            </div> -->
             <div class="panel-body">
              <table class="table">
+            
                <tr>
-                 <th>Item</th>
-                 <th>Detail</th>
-               </tr>
-               <tr>
-                 <td>Nama Perusahaan</td>
+                 <td>Nama Proyek</td>
                  <td><h4><?php echo $titles ?></h4></td>
                </tr>
                <tr>
@@ -223,6 +222,10 @@ google.maps.event.addDomListener(window, 'load', initialize);
                <tr>
                  <td>PJPK</td>
                  <td><h4><?php echo $pjpk ?></h4></td>
+               </tr>
+               <tr>
+                 <td>Contact Person</td>
+                 <td><h4><?php echo $contact_person ?></h4></td>
                </tr>
              </table>
             </div>
